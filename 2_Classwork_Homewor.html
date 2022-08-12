@@ -1,0 +1,54 @@
+<!-- 
+    Запросите у пользователя ввести какую-то фразу. 
+    Отобразите каждое отдельное слово в виде списка ul li. 
+    Также отобразите первое слово UPPERCASE, а последние 2 с маленькой. 
+    Найдите все буквы "а" их количество в модальное окно. 
+ -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <form>
+        <input id="myText" type="text">
+    </form>
+    <button onclick="CreateList()">Create list</button>
+    <button onclick="countLetters()">Check letters</button>
+    <ul id = "myUl">
+
+    </ul>
+    <script>
+        var myText = document.getElementById('myText');
+        regexpr = new RegExp("a");
+        function countLetters() {
+            var result = myText.value.match(/[a\?\<]/g);
+            var res = regexpr.test(myText);
+            if(res){
+                alert("The string has " + result.length + " a letters");
+            } else {
+                alert("The string has not any a letters");
+            }
+
+            
+        }
+        function CreateList(){
+            var substrs = myText.split(" ");
+            for (var i = 0; i<substrs.length; i++){
+                document.getElementById("myUl").innerHTML = ("<li>substrs[i]</li>");
+            }
+
+            var first = document.getElementById("myUl").firstChild;
+            var last = document.getElementById("myUl").lastElementChild;
+            last = last.toLowerCase();
+            first = first.toUpperCase();
+        }
+        
+
+
+    </script>
+        
+</body>
+</html>

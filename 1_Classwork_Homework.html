@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homework1</title>
+</head>
+<body>
+    <p id="sec"></p>
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="reset()">Reset</button>
+    <button onclick="reverseCount()">Reverse</button>
+    <script>
+        var count;
+        var countRev;
+        var myvar;
+        var myRevVar;
+        function start(){
+            count = 0;
+            clearInterval(myRevVar);
+            myvar = setInterval(
+            function(){
+                document.getElementById("sec").innerHTML = count++;
+                if (count == 31){
+                clearInterval(myvar);
+            }
+            }, 1000);
+
+        }
+        function stop(){
+            clearInterval(myvar);
+            clearInterval(myRevVar);
+
+
+        }
+        function reset(){
+            count = 0;
+            countRev = 30;
+        }
+        function reverseCount(){
+            clearInterval(myvar);
+            countRev = 30;
+            myRevVar = setInterval(
+            function(){
+                document.getElementById("sec").innerHTML = countRev--;
+                if (countRev == 0){
+                clearInterval(myvar);
+            }
+            }, 1000);
+        }
+
+        
+
+    </script>
+<!-- Создайте счетчик секунд, который начинает отчет с 1 и заканчивается на 30,
+также добавьте кнопки которые останавливают отчет, и запускают его заново и добавьте кнопку
+обнуляющую отcчет. Также попробуйте изменить код так чтобы отсчет начинался с 30 и заканчивался на 1. -->
+</body>
+</html>
