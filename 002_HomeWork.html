@@ -1,0 +1,42 @@
+
+    <!--
+    1. Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления.
+    Используйте только один обработчик.
+
+    2. Доработайте пример 004_Attr_Tech.html таким образом, чтобы при наведении на span элементы,
+    подсказка сплыва под ними, а не в модальном окне. Используйте addEventListener -->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+      <meta charset="utf-8">
+      <title>Delegate</title>
+      <script>
+      window.onload = function () {
+          var del = document.getElementById('delete');
+          var box = document.getElementsByClassName("textbox");
+
+          if (del) {
+             del.addEventListener("click", function(e) {
+                var target = e ? e.target : window.event.srcElement;
+
+                if (target.tagName !== 'A') {
+                    return
+                }
+                this.parentNode.style.display = 'none';
+                e.preventDefault();
+                return false; // отменить переход по ссылке
+              });
+          }
+      };
+    </script>
+
+</head>
+<body>
+    <div class="textbox">Some Text1 <a href="" id="delete">x</a></div>
+    <div class="textbox">Some Text2 <a href="" id="delete">x</a></div>
+    <div class="textbox">Some Text3 <a href="" id="delete">x</a></div>
+    <div class="textbox">Some Text4 <a href="" id="delete">x</a></div>
+    <div class="textbox">Some Text5 <a href="" id="delete">x</a></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт.
+При клике на ссылку див появляется, если повторно нажать ссылку див и текст должны пропасть.
+Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,user-scalable=no">
+        <style>
+            .box{
+                display:none;
+            }
+            .box-visible {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <a id = "link" href="#">click</a>
+        <div class="box">Text</div>
+        <button onclick="removeToggle()">Remove</button>
+        <script>
+            var box = document.getElementsByClassName("box");
+            var link = document.getElementById("link");
+            link.addEventListener('click', toggleBox);
+            function removeToggle(){
+                link.removeEventListener('click', toggleBox);
+            }
+            function toggleBox(){
+                box[0].classList.toggle("box-visible");
+            }
+        </script>
+    </body>
+</html>
