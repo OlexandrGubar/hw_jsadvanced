@@ -13,11 +13,11 @@
       <title>Delegate</title>
       <script>
       window.onload = function () {
-          var del = document.getElementById('delete');
+          var del = document.getElementsByClassName('delete');
           var box = document.getElementsByClassName("textbox");
-
-          if (del) {
-             del.addEventListener("click", function(e) {
+        for (let i = 0 ; i < del.length; i++){
+          if (del[i]) {
+             del[i].addEventListener("click", function(e) {
                 var target = e ? e.target : window.event.srcElement;
 
                 if (target.tagName !== 'A') {
@@ -28,15 +28,17 @@
                 return false; // отменить переход по ссылке
               });
           }
-      };
+        };
+
+        }
     </script>
 
 </head>
 <body>
-    <div class="textbox">Some Text1 <a href="" id="delete">x</a></div>
-    <div class="textbox">Some Text2 <a href="" id="delete">x</a></div>
-    <div class="textbox">Some Text3 <a href="" id="delete">x</a></div>
-    <div class="textbox">Some Text4 <a href="" id="delete">x</a></div>
-    <div class="textbox">Some Text5 <a href="" id="delete">x</a></div>
+    <div class="textbox">Some Text1 <a href="" class="delete">x</a></div>
+    <div class="textbox">Some Text2 <a href="" class="delete">x</a></div>
+    <div class="textbox">Some Text3 <a href="" class="delete">x</a></div>
+    <div class="textbox">Some Text4 <a href="" class="delete">x</a></div>
+    <div class="textbox">Some Text5 <a href="" class="delete">x</a></div>
 </body>
 </html>
