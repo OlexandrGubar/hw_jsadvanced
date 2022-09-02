@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+	<title>HomeWork</title>
+	<style>
+		#box {
+			width: 50px;
+			height: 50px;
+			background-color: aqua;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script>
+		var box = document.getElementById('box');
+		box.onmousedown = function(e){
+			var coords = getCoords(box);
+			var shiftX = e.pageX - coords.left;
+			var shiftY = e.pageY - coords.top;
+			box.style.position = 'absolute';
+			document.body.appendChild(box);
+			moveAt(e);
+			box.style.zIndex = 1000;
+			function moveAt(e) {
+				box.style.left = e.pageX - shiftX + 'px';
+				box.style.Top = e.pageY - shiftY + 'px';
+			}
+			document.onmousemove = function(e){
+				moveAt(e);
+			}
+			box.onmouseup = function(){
+				document.onmousemove = null;
+				box.onmouseup = null;
+			}
+
+		}
+		box.ondragstart = function(){
+			return false;
+		}
+		function getCoords(elem) {
+			var bigBox = elem.getBoundingClientRect();
+			return{
+				top: bigBox.top + pageYOffset,
+				left: bigBox.left + pageXOffset
+			} 
+		}
+	</script>
+    <!-- 
+	1. drag and drop;
+	2. создайте div, при клике на него, div начинает двигаться вправо, при клике на кнопку - останавливается,
+	при попадании div к краю окна, он переходит к началу окна.
+	-->
+</body>
+</html>

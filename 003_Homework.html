@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+	<title>HomeWork</title>
+	<style>
+        #box {
+            width: 50px;
+            height: 50px;
+            background-color: #0099FF;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script>
+      window.onload = function () {
+        var box = document.querySelector('box');
+        box.addEventListener('click', function move(){
+            var x = this.ClientX;
+            x = x + 50;
+            this.style.left = x + "px";
+
+        })
+      }
+      
+	</script>
+    <!-- 
+	1. drag and drop;
+	2. создайте div, при клике на него, div начинает двигаться вправо, при клике на кнопку - останавливается,
+	при попадании div к краю окна, он переходит к началу окна.
+	-->
+</body>
+</html>
