@@ -1,0 +1,42 @@
+<!-- Реализуйте последние 2 слайда в презентации с помощью пройденого на уроке материала -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Наследование</title>
+    <script type="text/javascript">
+
+        class Person {
+            constructor(eat, drink, sleep) {
+               this.eat = eat;
+               this.drink = drink;
+               this.sleep = sleep;
+            }
+        }
+
+        class Doctor extends Person {
+            constructor(eat, drink, sleep) {
+                super(eat, drink, sleep);
+            }
+            cure () {
+                return `I'm doctor`;
+            }
+        }
+
+        class Soldier extends Person {
+            constructor(eat, drink, sleep) {
+                super(eat, drink, sleep);
+            }
+            shoot () {
+                return `Piu Piu`;
+            }
+        }
+        let doc = new Doctor(true, true, true);
+        let sold = new Soldier(true, true, true);
+
+        console.log(doc.cure());
+        console.log(sold.shoot());
+    </script>
+</head>
+<body>
+</body>
+</html>

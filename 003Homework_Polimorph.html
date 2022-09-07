@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Полиморфизм</title>
+    <script type="text/javascript">
+
+        function Doctor(eat, drink, walk) {
+            this.eat = eat;
+            this.drink = drink;
+            this.walk = walk;
+            this.cure = function () {
+                console.log("I'm a doctor"); 
+            };
+        };
+
+         function Dentist(eat, drink, walk) {
+            this.eat = eat;
+            this.drink = drink;
+            this.walk = walk;
+            this.cure = function () {
+                console.log("I'm a dentist"); 
+            };
+        };
+
+        function Surgeon(eat, drink, walk) {
+            this.eat = eat;
+            this.drink = drink;
+            this.walk = walk;
+            this.cure = function () {
+                console.log("I'm a surgeon"); 
+            };
+        };
+
+        Dentist.prototype = new Doctor();
+        Surgeon.prototype = new Doctor();
+
+        var Bob = new Dentist(true, true, true);
+        var Tom = new Surgeon(true,true,true);
+        console.log(Bob);
+        console.log(Tom);
+        console.log(Bob.cure());
+        console.log(Tom.cure());
+</script>
+</head>
+<body>
+</body>
+</html>
+

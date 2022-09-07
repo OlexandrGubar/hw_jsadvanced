@@ -1,0 +1,28 @@
+<!-- Создайте функцию, которая возвращает день недели для даты.
+День нужно возвратить в формате - понедельник имеет номер 1, вторник номер 2, …, воскресенье - номер 7. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <button id = "start">Start</button>
+    <script>
+        var start = document.getElementById("start");
+        start.addEventListener('click', function FindDay(){
+        var dateInput = prompt("Enter date \n Example: 'January, 1, 1970'");
+        var date = new Date(dateInput);
+        var day = date.getDay();
+        if(day === 0){
+            alert(7);
+        } else {
+            alert(day);
+        }
+        
+        })
+
+
+    </script>
+</body>
+</html>
