@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Сохранение и извлечение данных localStorage</title>
+    <script type="text/javascript">
+        window.localStorage.setItem("key1", "Admin");
+        window.localStorage.setItem("key2", "admin");
+
+
+        function checkUser() {
+            var input = prompt('input your login');
+            if(input === window.localStorage.getItem("key1") || input === window.localStorage.getItem("key2")){
+                alert('User '+ input + '. You have entered your account succesfully');
+            } else {
+                checkUser();
+            }
+
+        }
+        checkUser();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
